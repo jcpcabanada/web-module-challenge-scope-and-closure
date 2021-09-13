@@ -29,10 +29,17 @@ console.log(processFirstItem(['foo','bar'],function(str){return str+str}));
   
   1. What is the difference between counter1 and counter2?
   
+  A:counter2 uses makes a universal variable within the whole/world scope which is outside the function, while counter1 creates the variable with in the function which is in a local scope. 
+
   2. Which of the two uses a closure? How can you tell?
   
+  A:counter1 uses a closure because there is a return function used with in a function.
+
   3. In what scenario would the counter1 code be preferable? In what scenario would 
      counter2 be better?  
+  
+  A:
+
 */
 
 // counter1 code
@@ -62,8 +69,8 @@ Use the inning function below to do the following:
 NOTE: This will be a callback function for the tasks below
 */
 
-function inning(/*Code Here*/){
-    /*Code Here*/
+function inning(){
+    return Math.round(Math.random() * 2);
 }
 
 
@@ -81,9 +88,21 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(/*code Here*/){
-  /*Code Here*/
+function finalScore(inningCb, numPlayInn){
+  const score = [];
+  let homeScore = 0;
+  let awayScore = 0;
+  for (let i = 0; i < numPlayInn; i++){
+    let scoreCurrent = numPlayInn(inningCb);
+    homeScore = homeScore + scoreCurrent;
+    awayScore =  awayScore + scoreCurrent;
+  }
+  return {
+    "Home":homeScore,
+    "Away":awayScore
+  }
 }
+
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
