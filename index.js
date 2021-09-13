@@ -88,21 +88,18 @@ Use the finalScore function below to do the following:
 }
 */ 
 
-function finalScore(inningCb, numPlayInn){
-  const score = [];
+function finalScore(inningCb, number){
   let homeScore = 0;
   let awayScore = 0;
-  for (let i = 0; i < numPlayInn; i++){
-    let scoreCurrent = numPlayInn(inningCb);
-    homeScore = homeScore + scoreCurrent;
-    awayScore =  awayScore + scoreCurrent;
+  for (let i = 0; i < number; i++){
+    homeScore = homeScore + inningCb();
+    awayScore =  awayScore + inningCb();
   }
   return {
     "Home":homeScore,
     "Away":awayScore
   }
 }
-
 
 /* ⚾️⚾️⚾️ Task 4: getInningScore() ⚾️⚾️⚾️
 Use the getInningScore() function below to do the following:
