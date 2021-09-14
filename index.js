@@ -112,7 +112,7 @@ function getInningScore(scoreCb) {
     Away:scoreCb()
   }
 }
-console.log(getInningScore);
+console.log(getInningScore(finalScore));
 
 
 /* ⚾️⚾️⚾️ Task 5: scoreboard() ⚾️⚾️⚾️
@@ -156,9 +156,20 @@ Use the scoreboard function below to do the following:
 ]  
   */
 
-function scoreboard(getInningScore,inning, number) {
-  /* CODE HERE */
-}
+  function scoreboard(getInningScoreCb,inningCb, number) {
+    const totalScore = [];
+    let home = 0;
+    let away = 0;
+
+    for (let i = 0; i < inningCb; i++){
+      const currInning = getInningScore(inningCb);
+      home = home + currInning.Home;
+      away = away + currInning.Away;
+      totalScore.push(`Inning ${i + 1}: Away ${away} - Home ${home}`)
+      
+    }
+    return totalScore;
+  }
 
 
 
